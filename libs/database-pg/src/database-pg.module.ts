@@ -1,8 +1,14 @@
 import { Module } from '@nestjs/common';
-import { DatabasePgService } from './database-pg.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { repositories } from './repository';
+
+import * as typeOrmOptions from './config/typeorm.config';
 
 @Module({
-  providers: [DatabasePgService],
-  exports: [DatabasePgService],
+  imports: [
+    TypeOrmModule.forRoot(typeOrmOptions),
+    TypeOrmModule.forFeature(repositories),
+  ],
+  exports: [TypeOrmModule.forFeature(repositories)],
 })
 export class DatabasePgModule {}
