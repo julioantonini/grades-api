@@ -1,6 +1,6 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/grades-api/src",
   "projects": {
     "database-pg": {
       "type": "library",
@@ -10,9 +10,30 @@
       "compilerOptions": {
         "tsConfigPath": "libs/database-pg/tsconfig.lib.json"
       }
+    },
+    "grades-api": {
+      "type": "application",
+      "root": "apps/grades-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/grades-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grades-api/tsconfig.app.json"
+      }
+    },
+    "grades-api-admin": {
+      "type": "application",
+      "root": "apps/grades-api-admin",
+      "entryFile": "main",
+      "sourceRoot": "apps/grades-api-admin/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/grades-api-admin/tsconfig.app.json"
+      }
     }
   },
   "compilerOptions": {
-    "webpack": true
-  }
+    "webpack": true,
+    "tsConfigPath": "apps/grades-api/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/grades-api"
 }
