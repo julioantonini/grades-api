@@ -1,10 +1,8 @@
 import { Module } from '@nestjs/common';
-import { GradesApiAdminController } from './grades-api-admin.controller';
-import { GradesApiAdminService } from './grades-api-admin.service';
+
+import { GradesModule } from './grades/grades.module';
 
 @Module({
-  imports: [],
-  controllers: [GradesApiAdminController],
-  providers: [GradesApiAdminService],
+  imports: [GradesModule],
 })
 export class GradesApiAdminModule {}
