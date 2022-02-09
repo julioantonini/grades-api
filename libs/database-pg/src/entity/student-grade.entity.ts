@@ -1,4 +1,6 @@
 import {
+  AfterLoad,
+  BeforeInsert,
   Column,
   CreateDateColumn,
   Entity,
@@ -28,13 +30,15 @@ export class StudentGradeEntity {
   @Column('integer')
   n4: number;
 
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @UpdateDateColumn()
-  updatedAt: Date;
-
   @OneToOne(() => StudentEntity, (student) => student.id)
   @JoinColumn()
   student: StudentEntity;
+
+  public average: number;
+
+  @BeforeInsert()
+  @AfterLoad()
+  averageGrades() {
+    this.average = (this.n1 + this.n2 + this.n3 + this.n4) / 4;
+  }
 }
