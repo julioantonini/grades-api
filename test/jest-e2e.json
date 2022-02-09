@@ -1,9 +1,17 @@
 {
-  "moduleFileExtensions": ["js", "json", "ts"],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
   "rootDir": ".",
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
   "transform": {
     "^.+\\.(t|j)s$": "ts-jest"
+  },
+  "moduleNameMapper": {
+    "detabase-pg/database-pg/(.*)": "<rootDir>/../libs/database-pg/src/$1",
+    "detabase-pg/database-pg": "<rootDir>/../libs/database-pg/src"
   }
 }

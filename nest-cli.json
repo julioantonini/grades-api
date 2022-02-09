@@ -1,4 +1,18 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "src",
+  "projects": {
+    "database-pg": {
+      "type": "library",
+      "root": "libs/database-pg",
+      "entryFile": "index",
+      "sourceRoot": "libs/database-pg/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/database-pg/tsconfig.lib.json"
+      }
+    }
+  },
+  "compilerOptions": {
+    "webpack": true
+  }
 }

@@ -16,6 +16,14 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "detabase-pg/database-pg": [
+        "libs/database-pg/src"
+      ],
+      "detabase-pg/database-pg/*": [
+        "libs/database-pg/src/*"
+      ]
+    }
   }
 }
