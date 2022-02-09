@@ -2,9 +2,14 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { StudentEntity } from '.';
+
+export type StudentGradeEntityRelations = 'student';
 
 @Entity('studentGrade')
 export class StudentGradeEntity {
@@ -28,4 +33,8 @@ export class StudentGradeEntity {
 
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToOne(() => StudentEntity, (student) => student.id)
+  @JoinColumn()
+  student: StudentEntity;
 }
