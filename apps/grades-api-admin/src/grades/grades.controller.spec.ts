@@ -13,7 +13,7 @@ describe('GradesController', () => {
 
   const makeParams = (): GradesDto => ({
     studentId: 1,
-    studentName: 'any name',
+    studentName: 'student name',
     n1: 1,
     n2: 2,
     n3: 3,
