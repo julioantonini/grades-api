@@ -8,6 +8,7 @@ describe('GradesController', () => {
 
   const gradesServiceMock = {
     createOrUpdate: jest.fn(),
+    findAll: jest.fn(),
   };
 
   const makeParams = (): GradesDto => ({
@@ -41,5 +42,10 @@ describe('GradesController', () => {
     const params = makeParams();
     await controller.createOrUpdate(params);
     expect(gradesServiceMock.createOrUpdate).toHaveBeenCalledWith(params);
+  });
+
+  it('should call GradesService findAll', async () => {
+    await controller.findAll();
+    expect(gradesServiceMock.findAll).toHaveBeenCalled();
   });
 });
