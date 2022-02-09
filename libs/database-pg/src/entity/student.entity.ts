@@ -3,7 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   OneToOne,
-  PrimaryGeneratedColumn,
+  PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { StudentGradeEntity } from '.';
@@ -12,7 +12,7 @@ export type StudentEntityRelations = 'studentGrade';
 
 @Entity('student')
 export class StudentEntity {
-  @PrimaryGeneratedColumn({ type: 'bigint' })
+  @PrimaryColumn('bigint')
   id: number;
 
   @Column({ length: 80 })
