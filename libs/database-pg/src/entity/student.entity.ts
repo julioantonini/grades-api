@@ -4,7 +4,6 @@ import {
   Entity,
   OneToOne,
   PrimaryColumn,
-  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { StudentGradeEntity } from '.';
@@ -13,7 +12,7 @@ export type StudentEntityRelations = 'studentGrade';
 
 @Entity('student')
 export class StudentEntity {
-  @PrimaryGeneratedColumn({ type: 'bigint' })
+  @PrimaryColumn({ type: 'bigint' })
   id: number;
 
   @Column({ length: 80 })
