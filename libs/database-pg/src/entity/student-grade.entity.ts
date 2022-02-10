@@ -2,20 +2,24 @@ import {
   AfterLoad,
   BeforeInsert,
   Column,
-  CreateDateColumn,
   Entity,
+  Generated,
   JoinColumn,
   OneToOne,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
+  PrimaryColumn,
 } from 'typeorm';
 import { StudentEntity } from '.';
+import { ColumnBigIntegerTransformer } from '../transform/column-big-integer-transform';
 
 export type StudentGradeEntityRelations = 'student';
 
 @Entity('studentGrade')
 export class StudentGradeEntity {
-  @PrimaryGeneratedColumn({ type: 'bigint' })
+  @Generated()
+  @PrimaryColumn({
+    type: 'bigint',
+    transformer: new ColumnBigIntegerTransformer(),
+  })
   id: number;
 
   @Column('integer')
