@@ -4,12 +4,8 @@ import { GradesService } from './grades.service';
 import { GradesDto } from './types/grades.dto';
 
 describe('GradesController', () => {
-  let controller: GradesController;
-
-  const gradesServiceMock = {
-    createOrUpdate: jest.fn(),
-    findAll: jest.fn(),
-  };
+  let sut: GradesController;
+  let service: GradesService;
 
   const makeParams = (): GradesDto => ({
     studentId: 1,
@@ -26,26 +22,30 @@ describe('GradesController', () => {
       providers: [
         {
           provide: GradesService,
-          useValue: gradesServiceMock,
+          useValue: {
+            createOrUpdate: jest.fn(),
+            findAll: jest.fn(),
+          },
         },
       ],
     }).compile();
 
-    controller = module.get<GradesController>(GradesController);
+    sut = module.get<GradesController>(GradesController);
+    service = module.get<GradesService>(GradesService);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(sut).toBeDefined();
   });
 
   it('should call GradesService createOrUpdate with correct params', async () => {
     const params = makeParams();
-    await controller.createOrUpdate(params);
-    expect(gradesServiceMock.createOrUpdate).toHaveBeenCalledWith(params);
+    await sut.createOrUpdate(params);
+    expect(service.createOrUpdate).toHaveBeenCalledWith(params);
   });
 
   it('should call GradesService findAll', async () => {
-    await controller.findAll();
-    expect(gradesServiceMock.findAll).toHaveBeenCalled();
+    await sut.findAll();
+    expect(service.findAll).toHaveBeenCalled();
   });
 });
