@@ -3,11 +3,13 @@ import {
   AfterLoad,
   AfterUpdate,
   Column,
+  CreateDateColumn,
   Entity,
   Generated,
   JoinColumn,
   OneToOne,
   PrimaryColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 import { StudentEntity } from '.';
 import { ColumnBigIntegerTransformer } from '../transform/column-big-integer-transform';
@@ -34,6 +36,12 @@ export class StudentGradeEntity {
 
   @Column('integer')
   n4: number;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @UpdateDateColumn()
+  updatedAt: Date;
 
   @OneToOne(() => StudentEntity, (student) => student.id)
   @JoinColumn()
