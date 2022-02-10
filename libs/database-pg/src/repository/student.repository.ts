@@ -10,4 +10,8 @@ export class StudentRepository extends Repository<StudentEntity> {
   ): Promise<StudentEntity> {
     return this.findOne({ id }, { relations });
   }
+
+  findAll(relations: StudentEntityRelations[]): Promise<StudentEntity[]> {
+    return this.find({ relations });
+  }
 }

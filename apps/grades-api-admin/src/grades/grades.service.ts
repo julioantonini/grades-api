@@ -26,7 +26,15 @@ export class GradesService {
   }
 
   public async findAll() {
-    return null;
+    const studentResponses = await this.studentRepository.findAll([
+      'studentGrade',
+    ]);
+
+    const students = studentResponses.map((student) =>
+      this.formatResult(student),
+    );
+
+    return students;
   }
 
   private async create(params: GradesDto): Promise<StudentEntity> {

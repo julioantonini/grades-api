@@ -15,7 +15,7 @@ export class GradesController {
   }
 
   @Get()
-  findAll(): Promise<StudentEntity[]> {
+  findAll(): Promise<StudentGradesResult[]> {
     return this.gradesService.findAll();
   }
 }
