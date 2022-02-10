@@ -3,6 +3,7 @@ import { IsNotEmpty, IsNumber, Max, Min } from 'class-validator';
 
 export class GradesDto {
   @IsNumber()
+  @Min(1)
   studentId: number;
 
   @IsNotEmpty()
