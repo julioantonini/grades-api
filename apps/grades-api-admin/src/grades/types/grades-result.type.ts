@@ -24,6 +24,9 @@ export class StudentGradesResult {
   @ApiProperty()
   name: string;
 
+  @ApiProperty({ enum: ['APPROVED', 'IN_RECOVERY', 'DISAPPROVED'] })
+  status: string;
+
   @ApiProperty({ type: GradesResult })
   studentGrade: GradesResult;
 }

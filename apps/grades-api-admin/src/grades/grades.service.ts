@@ -4,6 +4,7 @@ import { StudentGradeRepository } from 'detabase-pg/database-pg/repository/stude
 import { StudentRepository } from 'detabase-pg/database-pg/repository/student.repository';
 import { ResultFactory } from './factory/result.factory';
 import { GradesDto, StudentGradesResult } from './types';
+import { GRADE_STATUS } from './types/grades-status.enum';
 
 @Injectable()
 export class GradesService {
@@ -37,6 +38,18 @@ export class GradesService {
     return students;
   }
 
+  private getStatus(average: number): GRADE_STATUS {
+    if (average < 4) {
+      return GRADE_STATUS.DISAPPROVED;
+    }
+
+    if (average >= 4 && average < 6) {
+      return GRADE_STATUS.IN_RECOVERY;
+    }
+
+    return GRADE_STATUS.APPROVED;
+  }
+
   private async create(params: GradesDto): Promise<StudentEntity> {
     const { studentId: id, studentName: name, n1, n2, n3, n4 } = params;
     const student = this.studentRepository.create({ id, name });
@@ -67,6 +80,8 @@ export class GradesService {
   }
 
   private formatResult(student: StudentEntity): StudentGradesResult {
-    return ResultFactory.create(student);
+    const { average } = student.studentGrade;
+    const status = this.getStatus(average);
+    return ResultFactory.create(student, status);
   }
 }
