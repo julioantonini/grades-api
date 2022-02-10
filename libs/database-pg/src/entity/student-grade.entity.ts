@@ -1,6 +1,7 @@
 import {
+  AfterInsert,
   AfterLoad,
-  BeforeInsert,
+  AfterUpdate,
   Column,
   Entity,
   Generated,
@@ -40,8 +41,9 @@ export class StudentGradeEntity {
 
   public average: number;
 
-  @BeforeInsert()
+  @AfterInsert()
   @AfterLoad()
+  @AfterUpdate()
   averageGrades() {
     this.average = (this.n1 + this.n2 + this.n3 + this.n4) / 4;
   }

@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GradesController } from './grades.controller';
-import { GradesDto } from './grades.dto';
 import { GradesService } from './grades.service';
+import { GradesDto } from './types/grades.dto';
 
 describe('GradesController', () => {
   let controller: GradesController;
