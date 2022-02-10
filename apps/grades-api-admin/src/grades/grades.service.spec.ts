@@ -1,3 +1,4 @@
+import { StudentGradesResult } from '@domain/domain';
 import { Test, TestingModule } from '@nestjs/testing';
 import {
   StudentEntity,
@@ -14,7 +15,6 @@ import {
   makeStudentWithGradeMock,
 } from './mock/grades.service.mock';
 import { makeGradesParamsMock } from './mock/make-grades-params.mock';
-import { StudentGradesResult } from './types';
 
 describe('GradesService', () => {
   let sut: GradesService;

@@ -1,11 +1,11 @@
+import { ResultFactory, StudentGradesResult } from '@domain/domain';
 import { Injectable } from '@nestjs/common';
 import { Utils } from '@utils/utils';
 import { GRADE_STATUS } from '@utils/utils/status';
 import { StudentEntity } from 'detabase-pg/database-pg/entity';
 import { StudentGradeRepository } from 'detabase-pg/database-pg/repository/student-grade.repository';
 import { StudentRepository } from 'detabase-pg/database-pg/repository/student.repository';
-import { ResultFactory } from './factory/result.factory';
-import { GradesDto, StudentGradesResult } from './types';
+import { GradesDto } from './types';
 
 @Injectable()
 export class GradesService {

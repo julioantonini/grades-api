@@ -1,7 +1,8 @@
+import { StudentGradesResult } from '@domain/domain';
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { ApiBody, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { GradesService } from './grades.service';
-import { GradesDto, StudentGradesResult } from './types';
+import { GradesDto } from './types';
 
 @Controller('grades')
 @ApiTags('Grades')

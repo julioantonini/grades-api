@@ -84,7 +84,8 @@
     ],
     "moduleNameMapper": {
       "^detabase-pg/database-pg(|/.*)$": "<rootDir>/libs/database-pg/src/$1",
-      "^@utils/utils(|/.*)$": "<rootDir>/libs/utils/src/$1"
+      "^@utils/utils(|/.*)$": "<rootDir>/libs/utils/src/$1",
+      "^@domain/domain(|/.*)$": "<rootDir>/libs/domain/src/$1"
     }
   }
 }
