@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+import { Utils } from '@utils/utils';
+import { GRADE_STATUS } from '@utils/utils/status';
 import { StudentEntity } from 'detabase-pg/database-pg/entity';
 import { StudentGradeRepository } from 'detabase-pg/database-pg/repository/student-grade.repository';
 import { StudentRepository } from 'detabase-pg/database-pg/repository/student.repository';
 import { ResultFactory } from './factory/result.factory';
 import { GradesDto, StudentGradesResult } from './types';
-import { GRADE_STATUS } from './types/grades-status.enum';
 
 @Injectable()
 export class GradesService {
@@ -39,15 +40,7 @@ export class GradesService {
   }
 
   private getStatus(average: number): GRADE_STATUS {
-    if (average < 4) {
-      return GRADE_STATUS.DISAPPROVED;
-    }
-
-    if (average >= 4 && average < 6) {
-      return GRADE_STATUS.IN_RECOVERY;
-    }
-
-    return GRADE_STATUS.APPROVED;
+    return Utils.status.calculate(average);
   }
 
   private async create(params: GradesDto): Promise<StudentEntity> {
