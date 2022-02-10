@@ -1,5 +1,6 @@
+import { GRADE_STATUS } from '@utils/utils/status';
 import { StudentEntity } from 'detabase-pg/database-pg/entity';
-import { GRADE_STATUS, StudentGradesResult } from '../types';
+import { StudentGradesResult } from '../types';
 
 export class ResultFactory {
   static create(
