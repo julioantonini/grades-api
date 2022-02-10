@@ -45,7 +45,9 @@ export class GradesService {
 
   private async create(params: GradesDto): Promise<StudentEntity> {
     const { studentId: id, studentName: name, n1, n2, n3, n4 } = params;
+
     const student = this.studentRepository.create({ id, name });
+
     const grades = this.studentGradeRepository.create({ n1, n2, n3, n4 });
     const gradesResponse = await this.studentGradeRepository.save(grades);
 
