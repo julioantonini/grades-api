@@ -25,7 +25,7 @@ export class GradesService {
     return this.formatResult(student);
   }
 
-  public async findAll() {
+  public async findAll(): Promise<StudentGradesResult[]> {
     const studentResponses = await this.studentRepository.findAll([
       'studentGrade',
     ]);
