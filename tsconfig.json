@@ -23,6 +23,12 @@
       ],
       "detabase-pg/database-pg/*": [
         "libs/database-pg/src/*"
+      ],
+      "@utils/utils": [
+        "libs/utils/src"
+      ],
+      "@utils/utils/*": [
+        "libs/utils/src/*"
       ]
     }
   }

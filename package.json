@@ -83,7 +83,8 @@
       "<rootDir>/apps/"
     ],
     "moduleNameMapper": {
-      "^detabase-pg/database-pg(|/.*)$": "<rootDir>/libs/database-pg/src/$1"
+      "^detabase-pg/database-pg(|/.*)$": "<rootDir>/libs/database-pg/src/$1",
+      "^@utils/utils(|/.*)$": "<rootDir>/libs/utils/src/$1"
     }
   }
 }
