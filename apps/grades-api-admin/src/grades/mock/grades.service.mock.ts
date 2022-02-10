@@ -1,6 +1,3 @@
-import { GRADE_STATUS } from '@utils/utils/status';
-import { StudentGradesResult } from '../types';
-
 export const makeStudentGradeMock = () => ({
   n1: 1,
   n2: 2,
