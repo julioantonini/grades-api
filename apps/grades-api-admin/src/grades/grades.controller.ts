@@ -1,5 +1,4 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { StudentEntity } from 'detabase-pg/database-pg/entity';
 import { GradesService } from './grades.service';
 import { GradesDto, StudentGradesResult } from './types';
 
