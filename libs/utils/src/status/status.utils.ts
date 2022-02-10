@@ -1,4 +1,4 @@
-import { GRADE_STATUS } from '.';
+import { GRADE_STATUS } from '@domain/domain';
 
 const calculate = (average: number): GRADE_STATUS => {
   if (average < 4) {

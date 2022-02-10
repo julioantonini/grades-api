@@ -1,5 +1,5 @@
+import { GRADE_STATUS } from '@domain/domain';
 import { Utils } from '..';
-import { GRADE_STATUS } from './grades-status.enum';
 
 describe('Status Utils', () => {
   it('Shoud return disapproved status because the value is less than 4', () => {
