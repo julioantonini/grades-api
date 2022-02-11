@@ -14,7 +14,7 @@ export class LoggerService {
   }
 
   public logError(message: string, error: any): void {
-    console.log(
+    console.error(
       `[${this.context}] ${this.getDate()} message: ${message} error: ${error}`,
     );
   }
