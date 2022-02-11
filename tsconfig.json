@@ -35,6 +35,12 @@
       ],
       "@domain/domain/*": [
         "libs/domain/src/*"
+      ],
+      "@logger/logger": [
+        "libs/logger/src"
+      ],
+      "@logger/logger/*": [
+        "libs/logger/src/*"
       ]
     }
   }
