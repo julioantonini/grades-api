@@ -1,4 +1,4 @@
-import { StudentGradesResult } from '@domain/domain';
+import { GRADE_STATUS, StudentGradesResult } from '@domain/domain';
 import { Test, TestingModule } from '@nestjs/testing';
 import {
   StudentEntity,
@@ -145,7 +145,10 @@ describe('GradesService', () => {
       const params = makeGradesParamsMock();
       const spy = jest.spyOn(sut as any, 'formatResult');
       await sut.createOrUpdate(params);
-      expect(spy).toHaveBeenCalledWith(studentWithGradeMock);
+      expect(spy).toHaveBeenCalledWith(
+        studentWithGradeMock,
+        GRADE_STATUS.DISAPPROVED,
+      );
     });
 
     it('Should create a student grade', async () => {
@@ -203,7 +206,10 @@ describe('GradesService', () => {
       const params = makeGradesParamsMock();
       const spy = jest.spyOn(sut as any, 'formatResult');
       await sut.createOrUpdate(params);
-      expect(spy).toHaveBeenCalledWith(studentWithGradeMock);
+      expect(spy).toHaveBeenCalledWith(
+        studentWithGradeMock,
+        GRADE_STATUS.DISAPPROVED,
+      );
     });
 
     it('Should create a student grade on update', async () => {

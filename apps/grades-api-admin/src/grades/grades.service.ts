@@ -27,7 +27,9 @@ export class GradesService {
       ? await this.update(existentStudent, params)
       : await this.create(params);
 
-    return this.formatResult(student);
+    const status = this.getStatus(student.studentGrade.average);
+
+    return this.formatResult(student, status);
   }
 
   public async findAll(): Promise<StudentGradesResult[]> {
@@ -35,9 +37,10 @@ export class GradesService {
       'studentGrade',
     ]);
 
-    const students = studentResponses.map((student) =>
-      this.formatResult(student),
-    );
+    const students = studentResponses.map((student) => {
+      const status = this.getStatus(student.studentGrade.average);
+      return this.formatResult(student, status);
+    });
 
     return students;
   }
@@ -77,9 +80,10 @@ export class GradesService {
     return studentResponse;
   }
 
-  private formatResult(student: StudentEntity): StudentGradesResult {
-    const { average } = student.studentGrade;
-    const status = this.getStatus(average);
+  private formatResult(
+    student: StudentEntity,
+    status: GRADE_STATUS,
+  ): StudentGradesResult {
     return ResultFactory.create(student, status);
   }
 }
