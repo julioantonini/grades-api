@@ -45,9 +45,7 @@ git clone https://github.com/julioantonini/grades-api.git
 cd grades-api
 
 # install depencencies
-
 yarn install
-# install depencencies
 ```
 
 create the .env file based on the .env.example file in the project root directory and configure the environment variables according to your database,
