@@ -23,7 +23,7 @@ Grades api: consists of 2 APIs, one for creating and updating grades and one for
 
 - querying student grades
 
-## Database relations:
+## Database structure:
 
 <div>
   <img src="./.github/database.png" width="272">
