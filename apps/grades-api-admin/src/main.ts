@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { GradesApiAdminModule } from './grades-api-admin.module';
