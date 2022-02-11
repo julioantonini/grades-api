@@ -7,12 +7,12 @@
   "license": "UNLICENSED",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build",
+    "build": "nest build && nest build grades-api-admin",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:grades-api:prod": "env TZ='Etc/UTC' node dist/apps/grades-api/main.js",
     "start:grades-api-admin": "env TZ='Etc/UTC' nest start grades-api-admin --watch",
     "start:grades-api-admin:prod": "env TZ='Etc/UTC' node dist/apps/grades-api-admin/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -21,7 +21,8 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli",
-    "typeorm:cli": "yarn run typeorm -f ./libs/database-pg/src/config/typeorm.config.ts"
+    "typeorm:cli": "yarn run typeorm -f ./libs/database-pg/src/config/typeorm.config.ts",
+    "db:update": "yarn run typeorm:cli migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^8.0.0",
