@@ -1,10 +1,11 @@
 import { Controller, Get, Param } from '@nestjs/common';
 import { GradesService } from './grades.service';
 import { LOGGER_CONTEXT, LoggerService } from '@logger/logger';
-import { ApiResponse } from '@nestjs/swagger';
+import { ApiResponse, ApiTags } from '@nestjs/swagger';
 import { StudentGradesResult } from '@domain/domain';
 
 @Controller('grades')
+@ApiTags('Grades')
 export class GradesController {
   constructor(
     private readonly gradesService: GradesService,
