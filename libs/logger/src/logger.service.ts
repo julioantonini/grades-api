@@ -10,10 +10,16 @@ export class LoggerService {
   }
 
   public log(message: string): void {
-    console.log(`[${this.context}] ${new Date()} ${message}`);
+    console.log(`[${this.context}] ${this.getDate()} message: ${message}`);
   }
 
   public logError(message: string, error: any): void {
-    console.log(`[${this.context}] ${new Date()} ${message}: ${error}`);
+    console.log(
+      `[${this.context}] ${this.getDate()} message: ${message} error: ${error}`,
+    );
+  }
+
+  private getDate() {
+    return new Date().toISOString().replace('T', ' ').substring(0, 19);
   }
 }
